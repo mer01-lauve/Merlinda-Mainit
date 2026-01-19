@@ -53,21 +53,6 @@
             background-size: 100% 4px;
             z-index: 999;
             pointer-events: none;
-            animation: scanlines 0.1s linear infinite;
-        }
-
-        @keyframes scanlines {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 4px; }
-        }
-
-        /* Glitch Effect */
-        @keyframes glitch {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
         }
 
         /* Navigation */
@@ -101,6 +86,7 @@
             position: relative;
             text-transform: uppercase;
             letter-spacing: 2px;
+            white-space: nowrap;
         }
 
         nav a::before {
@@ -115,7 +101,6 @@
 
         nav a:hover {
             color: #888;
-            animation: glitch 0.3s infinite;
         }
 
         /* Hero Section */
@@ -126,12 +111,6 @@
             justify-content: center;
             text-align: center;
             padding: 120px 20px 50px;
-            position: relative;
-        }
-
-        .glitch-container {
-            position: relative;
-            display: inline-block;
         }
 
         .hero h1 {
@@ -140,50 +119,11 @@
             text-transform: uppercase;
             letter-spacing: 5px;
             margin: 20px 0;
-            position: relative;
             color: #fff;
             text-shadow: 
                 0 0 10px #fff,
                 0 0 20px #fff,
                 0 0 30px #fff;
-        }
-
-        .hero h1::before,
-        .hero h1::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .hero h1::before {
-            animation: glitch-1 2s infinite;
-            color: #ff0000;
-            z-index: -1;
-        }
-
-        .hero h1::after {
-            animation: glitch-2 2s infinite;
-            color: #00ffff;
-            z-index: -2;
-        }
-
-        @keyframes glitch-1 {
-            0%, 100% { transform: translate(0); opacity: 0.8; }
-            20% { transform: translate(-3px, 3px); }
-            40% { transform: translate(-3px, -3px); }
-            60% { transform: translate(3px, 3px); }
-            80% { transform: translate(3px, -3px); }
-        }
-
-        @keyframes glitch-2 {
-            0%, 100% { transform: translate(0); opacity: 0.8; }
-            20% { transform: translate(3px, -3px); }
-            40% { transform: translate(3px, 3px); }
-            60% { transform: translate(-3px, -3px); }
-            80% { transform: translate(-3px, 3px); }
         }
 
         .terminal-text {
@@ -215,11 +155,8 @@
             width: 220px;
             height: 220px;
             margin: 30px auto;
-            position: relative;
             border: 3px solid #fff;
-            box-shadow: 
-                0 0 20px rgba(255, 255, 255, 0.5),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
             clip-path: polygon(
                 0% 10%, 10% 0%, 90% 0%, 100% 10%,
                 100% 90%, 90% 100%, 10% 100%, 0% 90%
@@ -297,9 +234,6 @@
             text-transform: uppercase;
             letter-spacing: 5px;
             color: #fff;
-            position: relative;
-            display: inline-block;
-            width: 100%;
         }
 
         .section-title::before {
@@ -357,24 +291,6 @@
             padding: 30px;
             text-align: center;
             transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s;
-        }
-
-        .stat-box:hover::before {
-            left: 100%;
         }
 
         .stat-box:hover {
@@ -434,26 +350,13 @@
             height: 4px;
             background: #333;
             margin-top: 20px;
-            position: relative;
             overflow: hidden;
         }
 
         .skill-progress {
             height: 100%;
             background: #fff;
-            position: relative;
             animation: skillLoad 2s ease-out;
-        }
-
-        .skill-progress::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 10px;
-            height: 100%;
-            background: #fff;
-            box-shadow: 0 0 10px #fff;
         }
 
         @keyframes skillLoad {
@@ -472,22 +375,6 @@
             border: 2px solid #fff;
             overflow: hidden;
             transition: all 0.4s;
-            position: relative;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .project-card:hover::before {
-            left: 100%;
         }
 
         .project-card:hover {
@@ -504,28 +391,6 @@
             justify-content: center;
             font-size: 5em;
             border-bottom: 2px solid #fff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image::after {
-            content: 'VIEW PROJECT';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.9);
-            color: #000;
-            padding: 15px 30px;
-            font-size: 0.3em;
-            font-weight: 900;
-            letter-spacing: 2px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .project-card:hover .project-image::after {
-            opacity: 1;
         }
 
         .project-content {
@@ -697,7 +562,7 @@
             <div class="profile-frame">
                 <img src="Merlinda.jpg" alt="Profile" class="profile-img">
             </div>
-            <h1 data-text="YOUR NAME">Merlinda Mainit</h1>
+            <h1>YOUR NAME</h1>
             <p class="terminal-text">graphic_designer.exe<span class="cursor"></span></p>
             <p style="color: #666; font-size: 1.2em; margin: 20px 0;">CREATIVE DEVELOPER | TECH ARTIST | DESIGNER</p>
             <div class="cta-buttons">
@@ -809,7 +674,7 @@
                     <h3 class="project-title">CYBER GAME UI</h3>
                     <p class="project-desc">
                         Futuristic gaming interface design with cyberpunk aesthetics. 
-                        Complete UI/UX system for an action-packed gaming experience.
+                        Complete UI/UX system for action-packed gaming.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">UI DESIGN</span>
@@ -857,7 +722,7 @@
                     <h3 class="project-title">WEB EXPERIENCE</h3>
                     <p class="project-desc">
                         Interactive web experience with cutting-edge design and smooth animations. 
-                        Built for maximum user engagement.
+                        Built for maximum engagement.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">WEB DESIGN</span>
@@ -872,7 +737,7 @@
                     <div class="project-number">PROJECT 05</div>
                     <h3 class="project-title">CHARACTER DESIGN</h3>
                     <p class="project-desc">
-                        Original character concepts and illustrations for gaming and animation. 
+                        Original character concepts and illustrations for gaming. 
                         Detailed character sheets and variations.
                     </p>
                     <div class="project-tech">
@@ -889,7 +754,7 @@
                     <h3 class="project-title">ESPORTS BRANDING</h3>
                     <p class="project-desc">
                         Complete branding package for professional esports team. Logos, 
-                        jerseys, social media assets, and tournament graphics.
+                        jerseys, social media assets.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">ESPORTS</span>
@@ -906,11 +771,55 @@
         <div class="contact-grid">
             <div class="contact-box">
                 <div class="contact-icon">📧</div>
-                <div class="contact-label">mainitm@gmail.com</div>
-                <div class="contact-value">designer@example.com</div>
+                <div class="contact-label">EMAIL</div>
+                <div class="contact-value">merdesigner@gmail.com</div>
             </div>
             <div class="contact-box">
                 <div class="contact-icon">📱</div>
                 <div class="contact-label">PHONE</div>
-                <div class="contact-value">+63 9945678912</div>
+                <div class="contact-value">+63 9955678452</div>
             </div>
+            <div class="contact-box">
+                <div class="contact-icon">📍</div>
+                <div class="contact-label">LOCATION</div>
+                <div class="contact-value">Cebu City, PH</div>
+            </div>
+        </div>
+        <div class="social-grid">
+            <a href="#" class="social-box">💻</a>
+            <a href="#" class="social-box">💼</a>
+            <a href="#" class="social-box">🎮</a>
+            <a href="#" class="social-box">📷</a>
+            <a href="#" class="social-box">🐦</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 mrm | DESIGNED WITH PRECISION</p>
+    </footer>
+
+    <script>
+        // Scroll reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
